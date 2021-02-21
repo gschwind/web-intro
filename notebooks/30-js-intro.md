@@ -37,7 +37,7 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## the missing piece
+## Why JavaScript
 <!-- #endregion -->
 
 JavaScript comes in addition to
@@ -69,7 +69,7 @@ JavaScript
 </div>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## example 1
+## Example #1
 <!-- #endregion -->
 
 in the following example :
@@ -91,26 +91,19 @@ tools.from_samples("30-js-intro-01-on-off",
 
 visibility of symbols (variable and function names) :
 
-* **global** variables `document` and `console`  
-  allow to access browser components
-* **local** variables inside `toggle` are declared with `let`  
-  (there's a `const` too)
-* the `function toggle() ..` statement  
-  defines a **global** variable `toggle`
-* in HTML, we set the `onclick` property on `#button`  
-  it is a JavaScript fragment that refers to the global `toggle` function
+* **global** variables `document` and `console` allow to access browser components
+* **local** variables inside `toggle` are declared with `let`  (there's a `const` too)
+* the `function toggle() ..` statement defines a **global** variable `toggle`
+* in HTML, we set the `onclick` property on `#button` it is a JavaScript fragment that refers to the global `toggle` function
   
 <!-- #endregion -->
 
 <div class="rise-footnote">
-
-using `onclick` is the quick, but dirty, way to attach an event handler to an element;  
-a cleaner way is to use `addEventListener` from the JS side, as we will see later on
-
+Using `onclick` is the quick, but dirty, way to attach an event handler to an element; a cleaner way is to use `addEventListener` from the JS side, as we will see later on
 </div>
 
 <!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
-## example 2
+## Example 2
 <!-- #endregion -->
 in this further example :
 
@@ -143,13 +136,13 @@ and also, about asynchronicity :
 
 * initialization code messes with the `<svg>`'s attributes 
   * so, the `<svg>` element must have been created **beforehand**
-* **but** 
   * a page is made of html + css + js 
   * we have no control on the order  
     in which things happen in the browser
-* how to ensure that init code is executed  
-  **after** html elements are created ?
-  * the purpose of the `load` event sent to the global `window` object
+  * **we have no control on the order in which things happen in the browser**
+* We need to ensure that init code is executed **after** html elements are created
+  * => this is the purpose of `load` event sent to the global `window` object
+  * The load event is fired once the entire document is loaded
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
@@ -238,7 +231,7 @@ there are 2 http requests at work
 <img src="../media/loading-3-google.png" width="1000px">
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## event-driven
+## Event-driven
 <!-- #endregion -->
 
 * as opposed to more traditional languages,  
@@ -251,7 +244,7 @@ there are 2 http requests at work
   * or **time-**triggered - some cyclic task is scheduled
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## callbacks
+## Callbacks
 <!-- #endregion -->
 
 the historical paradigm for event-driven programming :
@@ -263,7 +256,7 @@ the historical paradigm for event-driven programming :
 * and then of course the function gets **fired** when event **occurs**
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## callbacks - continued
+## Callbacks - continued
 <!-- #endregion -->
 
 in our 3 examples, we have seen 4 callbacks already
@@ -275,13 +268,12 @@ in our 3 examples, we have seen 4 callbacks already
 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## take home message
+## Take home message
 <!-- #endregion -->
 
 as far as Web frontend, JavaScript :
 
 * runs **in the browser**  <span style="font-size: 60%">(and also increasingly used as a regular programming language)</span>
 * **full-fledged** modern language, with objects, classes, modules…
-* aware of browser objects through globals  
-  e.g. `document`, `window`, `console`
+* Some globals are specific to web pages in the browser such as `document`, `window`, `console`
 * highly influenced by **asynchronicity** / reactive programming

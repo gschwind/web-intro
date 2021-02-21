@@ -32,8 +32,10 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2')
-tools.init()
+// run this cell, and then 
+// click the created button
+tools = require('../js/toolsv2');
+tools.init();
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -41,19 +43,15 @@ tools.init()
 <!-- #endregion -->
 
 * loading JavaScript is **still an open topic** 
-* because in the general sense it is about  
-  **smooth dependencies**
-* typical use case  
-  module X needs module Y  
-  just like when a Python module does `import another`
+* because in the general sense it is about **smooth dependencies**
+* typical use case module X needs module Y just like when a Python module does `import another`
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## simplest case
+## Simplest case
 <!-- #endregion -->
 
 * restricting ourselves to the simplest case
-* where a single HTML page  
-  needs to load one JS fragment
+* where a single HTML page needs to load one JS fragment
 * there is one simple way : the `<script>` tag
   * that comes in 2 flavours,
   * whether code is inline or in a separate location
@@ -96,15 +94,9 @@ tools.init()
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-* **local file**  
-  `<script src="foo.js"></script>`  
-  loads `foo.js` from the same  
-  directory as the current page 
-
-* **remote file**  
-  <span style="font-size:0.5em"><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js&quot;&gt; &lt;/script&gt;</code></span>  
-  loads jQuery (more on that later)  
-    from a publicly available CDN
-    (Content Delivery Network)  
-  
+* Behaviour of `<script>` tag is similar to the load of css files
+  * `<script src="foo.js"></script>` loads `foo.js` from the same directory as the current page
+  * `<script src="/path/foo.js"></script>` loads `/path/foo.js` from current location
+  * `<script src="https://url.com/path/foo.js"></script>` loads `/path/foo.js` from the given absolute url
+* You can use the attribute `defer` to ensure to run the script once the entire page is loaded: `<script src="foo.js" defer></scritp>`
 <!-- #endregion -->

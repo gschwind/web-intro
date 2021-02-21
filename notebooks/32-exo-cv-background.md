@@ -93,8 +93,7 @@ your page is still in the middle of the loading phase
 <!-- #endregion -->
 
 <!-- #region -->
-the proper way is to attach a **callback**  
-to the page **`load`** event
+the proper way is to attach a **callback** to the page **`load`** event
 
 ```javascript
 // attach an (anonymous) function to the 'load' event
@@ -114,9 +113,7 @@ at a time where you can be sure the document is entirely **loaded**
 ## tip : implement a cyclic task
 <!-- #endregion -->
 
-implementing a cyclic task was done in example 2 already  
-as a reminder: based on `setInterval()`  
-(you may use clearInterval to cancel)
+implementing a cyclic task was done in example 2 already as a reminder: based on `setInterval()`. You may use clearInterval to cancel.
 
 ```javascript cell_style="split"
 // so that we can stop the running loop
@@ -150,7 +147,7 @@ clearInterval(interval)
 ### observations on cyclic tasks
 <!-- #endregion -->
 
-in a traditional language one would maybe consider writing something like 
+in a Python language one would maybe consider writing something like 
 
 <!-- #region cell_style="split" -->
 ```python
@@ -162,7 +159,7 @@ while True:
 <!-- #endregion -->
 
 <!-- #region cell_style="split" -->
-note however that with such an approach, the Python interpreter remains busy, it **can't do anything else** at the same time
+_Note:_ however with such an approach, the Python interpreter **can't do anything else** at the same time
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -260,6 +257,7 @@ as mentioned earlier already, you can
 * e.g. for [google chrome](https://developers.google.com/web/tools/chrome-devtools/shortcuts)  
   * macOS `⌘ ⌥ J` (console) or `⌘ ⌥ I` (your last tab)
   * others `⌃ ⇧ J` (console) or `⌃ ⇧ I` (your last tab)
+  * others `ctrl+shift+J` (console) or `ctrl+shift+I` (your last tab)
 * a bit early for now, but be aware that  
   they come with a complete debugger
 * do not hesitate to search for some hands-on / video tuto

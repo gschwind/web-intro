@@ -43,7 +43,7 @@ tools.init()
 <!-- #endregion -->
 
 ```javascript hide_input=true
-tools.iframe_exo("spinning-wheel")
+tools.from_samples("spinning-wheel")
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->

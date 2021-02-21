@@ -39,18 +39,16 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## preamble
+## Preamble
 <!-- #endregion -->
 
-* from now on, we will very briefly cover  
-  **some** features of the language
-* for a more thorough study,  
-  refer to [this excellent tutorial on javascript.info](https://javascript.info/)
+* from now on, we will very briefly cover **some** features of the language
+* for a more thorough study, refer to [this excellent tutorial on javascript.info](https://javascript.info/)
 * we will point at a selection of fragments as we go
 * students interested should probably read it through
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## various runtimes
+## Various runtimes
 <!-- #endregion -->
 
 <!-- #region -->
@@ -71,12 +69,13 @@ hello world
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## syntax
+## Syntax
 <!-- #endregion -->
 
-* looks a lot like Java (hence the name), and C/C++
-* like Java and C++, and unlike Python, indentation does not matter
-* a `;` is expected at the end of each statement
+* The syntax is similar to C, C++ and Java
+* Unlike Python, indentation does not matter
+* It have some object
+* `;` is expected at the end of each statement
 * 2 styles of comments
 
 ```javascript tags=["raises-exception"]
@@ -97,7 +96,7 @@ a = 10;
 ### tests and loops
 <!-- #endregion -->
 
-* `if` and `while` statements are straightforward
+* `if` and `while` statements are similar to C
 * `for` are a little more awkward - more on iterations as we go
 
 ```javascript cell_style="split"
@@ -165,13 +164,14 @@ for (let i=0; i<3; i++) {
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## variables ([link in tuto](https://javascript.info/variables))
+## Variables ([link in tuto](https://javascript.info/variables))
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
 * as usual, variables are **names** that refer to **data in memory**
 * like in Python, any such data is **typed**
 * core language has some **basic types**
+* Variable should be declared using one of the keywords
 <!-- #endregion -->
 
 ```javascript cell_style="split"
@@ -200,7 +200,7 @@ py + thon
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## variable scope 
+## Variable scope 
 <!-- #endregion -->
 
 * like in all other languages
@@ -250,7 +250,7 @@ foo()
 </p>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### blocks are delimited by `{}`
+### Blocks are delimited by `{}`
 <!-- #endregion -->
 
 * the elementary unit for scope is the **block**
@@ -285,7 +285,7 @@ console.log("level 0", y);
 <p class="rise-footnote"> surprising as it may be, the notebook's JavaScript engine is an instance of <code>node</code>, and so is <b>not browser-related</b> <br> so we could not inspect the <code>document</code> or <code>window</code> variables in this context; of course you can do so from the browser's console though</p>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## functions
+## Functions
 <!-- #endregion -->
 
 * like in other languages
@@ -300,12 +300,13 @@ foo(10, 20)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### duck typing
+### Duck typing
 <!-- #endregion -->
 
-* like in Python, 
+like in Python:
 * **objects** are typed
-* but **variables** are not typed 
+* but **variables** are not bound to a given type
+* members variable of object can change over time
 
 ```javascript
 function foo(x, y) {
@@ -319,7 +320,7 @@ foo('abc', 'def')
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### loose binding
+### Loose binding
 <!-- #endregion -->
 
 * JavaScript is **very permissive**
@@ -340,9 +341,10 @@ fuzzy("abc", "def", "ghi")
 
 * a very specific feature of JavaScript
 * is that the implicit variable `this` is always defined
+* the content of `this` depend on the context
 * useful and relevant **only** for
   * methods (more on this later)
-  * some callbacks
+  * and some callbacks
 
 ```javascript
 function show_this() {
@@ -353,10 +355,12 @@ show_this()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## classes
+## Classes
 <!-- #endregion -->
 
 as of ES6, the language has a proper `class` statement
+
+_Note:_ old javascript does not have class and use other way to define objects. 
 
 ```javascript
 class Vector {
@@ -383,7 +387,7 @@ vector.display()
     twice in the same scope</p>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### notes on classes
+### Notes on classes
 <!-- #endregion -->
 
 **NOTICE** the following from that first class example :
@@ -416,13 +420,13 @@ vector.display()
   on the attribute
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### property example
+### Property example
 <!-- #endregion -->
 
 ```javascript cell_style="split"
 class Temperature {
     constructor(kelvin) {
-        this.kelvin = kelvin;
+        this.kelvin = kelvin; // Call "set kelvin(kelvin)"
     }
     
     get kelvin() {
@@ -452,7 +456,7 @@ temp
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### old-school classes
+### Old-school classes
 <!-- #endregion -->
 
 * ES6 is relatively recent
@@ -461,7 +465,7 @@ temp
 * here again for new code you should stick to the new idiom
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## `console.log`
+## `console.log()` function
 <!-- #endregion -->
 
 * a function to show output
@@ -475,7 +479,7 @@ console.log(1, "two", [3, "four"])
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### `console.log` and objects
+### `console.log()` and objects
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -500,7 +504,7 @@ console.log("vector = ", vector)
 </p>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## exceptions
+## Exceptions
 <!-- #endregion -->
 
 * JavaScript supports exceptions, just like Python

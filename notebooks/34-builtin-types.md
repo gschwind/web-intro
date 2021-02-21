@@ -39,7 +39,7 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## nothing but the usual
+## Nothing but the usual
 <!-- #endregion -->
 
 * set of builtin types similar to Python's offering
@@ -140,7 +140,7 @@ for a deeper study :
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## arrays 
+## Arrays 
 <!-- #endregion -->
 
 * similar to Python's `list`s
@@ -168,7 +168,7 @@ array2.pop()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### common operations on arrays
+### Common operations on arrays
 <!-- #endregion -->
 
 ```javascript cell_style="split"
@@ -193,7 +193,7 @@ array.length
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### searching
+### Searching
 <!-- #endregion -->
 
 * like with Python lists, searching in an array is **linear** in its length
@@ -211,42 +211,36 @@ console.log(array.indexOf("absent"))
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### iterating over an array (common pitfall)
+### Iterating over values of an array
 <!-- #endregion -->
 
 <!-- #region cell_style="split" -->
-* Python programmers tend to do  
-  `for (x in array)`
-* that is **not** right, in JavaScript write  
-  <b><code>for (x <b><i>of</i></b> array)</code></b>
+* It posible to iterate through an array like python:
 <!-- #endregion -->
 
-<!-- #region cell_style="split" -->
-* also notice how to use `let` to define  
-  a variable **local** to the `for` loop
-* see also more on arrays on <https://javascript.info/array>
-<!-- #endregion -->
-
-```javascript cell_style="split"
-// the equivalent of Python's
-// iterating style
-
-for (let x of array) {
+```javascript
+for (let x of array1) {
     console.log(x);
 }
 ```
 
-```javascript cell_style="split"
-// for .. in 
-// iterates on the INDEXES
+* But be carefull of use `of` instead of `in` to iterrate each value
+* also notice how to use `let` to define a variable **local** to the `for` loop
 
+
+### Iterating using indices, ak. enumerate in python
+
+
+* Using `in` keyword iterate through indices:
+
+```javascript cell_style="split"
 for (let i in array) {
     console.log(i);
 }
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### more on arrays
+### More on arrays
 <!-- #endregion -->
 
 * as you expect there are many more methods available, like  
@@ -260,7 +254,7 @@ for (let i in array) {
      
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### shared references
+### Shared references
 <!-- #endregion -->
 
 * **exactly like in Python**, objects can be access from several references  
@@ -299,14 +293,13 @@ ref1
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## hash-based data types
+## Hash-based data types
 <!-- #endregion -->
 
 * `Map` and `Set` are JavaScript builtin types
   * that match Python's `dict` and `set` respectively
 * they exhibit the same constant-time lookup nice property
-* like in Python, **make sure to use them**   
-  whenever you need fast searching and indexing
+* like in Python, **make sure to use them** whenever you need fast searching and indexing
 
 ```javascript cell_style="split"
 let map = new Map();
@@ -319,7 +312,6 @@ map.get(1000)
 
 ```javascript cell_style="split"
 // iterating over map
-
 for (let k of map.keys()) {
     console.log(`key=${k}, value=${map.get(k)}`)
 }
@@ -332,7 +324,7 @@ for (let k of map.keys()) {
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## objects
+## Objects
 <!-- #endregion -->
 
 * as the name suggests, objects are the building block for OOP
@@ -355,9 +347,7 @@ console.log(`my name is ${bond.last_name}`);
 ```
 
 <p class="rise-footnote"> 
-    the syntax for JavaScript objects, as well as the <i>key/value</i> vocabulary <br>
-    make them **look like** Python dictionaries, <br>
-    **do not get confused though**, JavaScript objects are much more like Python class instances.
+    the syntax for JavaScript objects, as well as the <i>key/value</i> vocabulary make them <b>look like</b> Python dictionaries, <b>do not get confused though</b>, JavaScript objects are much more like Python class instances.
 </p>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -376,11 +366,10 @@ for (key in bond) {
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### assignment based on objects
+### Assignment based on objects
 <!-- #endregion -->
 
-reminder : we had already seen array-based assignment  
-which is a Python-style idiom
+reminder : we had already seen array-based assignment which is a Python-style idiom
 
 ```javascript
 let [a1, a2] = [100, 200];
@@ -391,11 +380,13 @@ let [a1, a2] = [100, 200];
 there a similar destructuring assignement on objects  
 
 ```javascript
+
 let example_obj = {name: "doe", phone: '0123456', other: 'some stuff'};
 
 let {name, phone} = {...example_obj};
 
 `name now is ${name}, phone is ${phone}`
+
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -477,9 +468,9 @@ foo(1, 2, 3, 4)
 ### more on arguments
 <!-- #endregion -->
 
-* there is no equivalent in JavaScript of named arguments
+* unlike Python there is no named arguments ak. `foo(arg0=10)`
 * nor of arguments with default values
-* **there is** however a way to deal with arguments in variable numbers
+* **there is** however a way to deal with variable number of arguments
 
 ```javascript
 // equivalent to Python's 

@@ -39,7 +39,7 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## sequential programming model
+## Sequential programming model
 <!-- #endregion -->
 
 in the traditional languages we have seen so far  
@@ -64,17 +64,13 @@ more concurrency, and we will cover that briefly in later courses
 within the browser though, things are different
 
 * what is the entry point ?
-* the browser does many things on its own  
-  or upon actions triggered by the user
-  all at the same time
-* also, as importantly
-  the browser's main job being to fetch data on the network  
-  these are structurally slow operations  
-* but users expect the browser to be always responsive  
+* the browser does many things on its own or upon actions triggered by the user all at the same time
+* also, as importantly the browser's main job being to fetch data on the network these are structurally slow operations
+* but users expect the browser to be always responsive
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## callbacks everywhere
+## Callbacks everywhere
 <!-- #endregion -->
 
 <!-- #region -->
@@ -103,12 +99,11 @@ setTimeout(
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### callbacks
+### Callbacks
 <!-- #endregion -->
 
 <!-- #region -->
-in this context, it is common to create functions **on the fly**  
-with e.g. the `function` expression
+in this context, it is common to create functions **on the fly** with e.g. the `function` expression
 
 ```javascript
 window.addEventListener(
@@ -122,10 +117,10 @@ window.addEventListener(
 <p class="rise-footnote">this style of creating function objects is extremely common in JavaScript; it is kind of close to `lambda` expressions in Python.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## closures
+## Closures
 <!-- #endregion -->
 
-* it is rather frequent that a callback needs to access context data
+* it is rather frequent that a callback needs to access data that sit outside the function context
 * it is safe to use lexically-bound variables inside the callback
 * see the `context` variable in the example below
 
@@ -135,6 +130,8 @@ window.addEventListener(
     let context = {a:1, b:2};
     setTimeout( 
         function() {
+            // Here the 'context' variable is visible and remain valid
+            // even if we leave the block
             console.log("context is", context);
         },
         2000);
@@ -168,15 +165,13 @@ try {
 
 <!-- #region cell_style="split" -->
 * `context` is created in a block
-* that is long gone at the time  
-  the callback triggers
-* but it is still reachable  
-  from the callback
+* that is long gone at the time the callback triggers
+* but it is still reachable from the callback
 * as it was *captured* in the closure
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## arrow functions
+## Arrow functions
 <!-- #endregion -->
 
 an alternative syntax to create functions on the fly
@@ -190,7 +185,8 @@ an alternative syntax to create functions on the fly
 ```javascript cell_style="split"
 // we could also have named it
 // 
-foo = (x) => { console.log(`PING x=${x}`); }
+let foo = (x) => { console.log(`PING x=${x}`); };
+foo;
 ```
 
 ```javascript cell_style="split"
@@ -210,25 +206,20 @@ console.log("armed")
 ## the limits of callbacks
 <!-- #endregion -->
 
-* highly recommended to study the  
-  [introduction to callbacks in javascript.info](https://javascript.info/callbacks)
-* that highlights the fundamental drawback  
-  of using callbacks
-* which is that you need to split your code into pieces  
-  and fit the pieces into functions
-* it easily becomes hard to read and modify  
-  especially if there is logic involved
+* highly recommended to study the [introduction to callbacks in javascript.info](https://javascript.info/callbacks)
+* that highlights the fundamental drawback of using callbacks
+* which is that you need to split your code into pieces and fit the pieces into functions
+* it easily becomes hard to read and modify especially if there is logic involved
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## events
+## Events
 <!-- #endregion -->
 
 so far we have seen a few types of events
 
 * mostly "load" that is rather crucial
-* there are also builtin events for keyboard / mouse interaction  
-  illustrated on the next example (we use `click` and `keydown`)
-* for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the available events
+* there are also builtin events for keyboard / mouse interaction illustrated on the next example (we use `click` and `keydown`)
+* for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the vailable events
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### `addEventListener`
@@ -240,7 +231,7 @@ so far we have seen a few types of events
 * and because we use `console.log(event)` we have the option to inspect the event object in the console, and see all its attributes
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### events example
+### Events example
 <!-- #endregion -->
 
 ```javascript hide_input=true
@@ -250,7 +241,7 @@ tools.from_samples("35-async-01-events", {separate_show: true, width: '40em'})
 ![](../media/callbacks-chain.png)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### example - observations
+### Example - observations
 <!-- #endregion -->
 
 notice from the example :
@@ -262,7 +253,7 @@ notice from the example :
 * also that the `.js` file does not export any symbol 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## promises
+## Promises
 <!-- #endregion -->
 
 a relatively new alternative to callbacks that tries to address the 'pyramid of Doom' as described in the article mentioned above
@@ -320,3 +311,76 @@ new Promise(
 
 for those interested, more details on promises can be found in the rest of [this chapter on javascript.info](https://javascript.info/async) [starting here](https://javascript.info/promise-basics)
 <!-- #endregion -->
+
+## `async` keyword 
+
+
+With `async` you can delare fonction that are `Promise` by default
+
+```javascript
+// when called this fonction will be a promise as the previous code
+async function foo() {
+        // make it work or fail every other time
+        failure_toggle = ! failure_toggle;
+      
+        // a promise must use resolve or reject exactly once
+        // depending on successful or not
+        if ( failure_toggle) {
+            // in case of failure, do not wait
+            throw 1; // Equivalent to reject(1);
+        } else {
+            // in case of success, wait for 1 s
+            return 1; // Equivalent to resolve(1);
+        }
+    }
+
+// Call the function as promise
+foo().then(
+        // first argument to then is in case of success (resolve is used)
+        (result) => { console.log(result); 
+                      return result * 2;},
+        // second is for the cases where reject is called
+        (result) => console.log(`error with ${result}`)
+).then(
+      function(result) { 
+          console.log(result); 
+          return result * 3;
+});
+```
+
+## `await` keyword
+
+
+* The keyword `await` allow to wait for the result of a promise
+* `await` can only used in `async` function
+* They cannot be used in the global scope
+
+```javascript
+async function foo() {
+    // make it work or fail every other time
+    failure_toggle = ! failure_toggle;
+
+    // a promise must use resolve or reject exactly once
+    // depending on successful or not
+    if ( failure_toggle) {
+        // in case of failure, do not wait
+        throw 1; // Equivalent to reject(1);
+    } else {
+        // in case of success, wait for 1 s
+        return await new Promise((resolve, reject) => setTimeout(() => resolve(1) , 3000));
+    }
+}
+
+// Call the function as promise
+foo().then(
+        // first argument to then is in case of success (resolve is used)
+        (result) => { console.log(result); 
+                      return result * 2;},
+        // second is for the cases where reject is called
+        (result) => console.log(`error with ${result}`)
+).then(
+      function(result) { 
+          console.log(result); 
+          return result * 3;
+});
+```

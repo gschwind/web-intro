@@ -51,5 +51,9 @@ the assignment is to write the **javascript companion** so that
 <!-- #endregion -->
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.iframe_exo("calculator", true, "plain-js")
+tools.from_samples("calculator")
+```
+
+```javascript
+
 ```
