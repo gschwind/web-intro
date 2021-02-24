@@ -122,7 +122,7 @@ let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 <!-- #endregion -->
 
 ```javascript
-// TODO EXEMPLE
+tools.from_samples("spinning-wheel/step2");
 ```
 
 ## Go to Step #3
