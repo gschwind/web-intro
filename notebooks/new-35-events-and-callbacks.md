@@ -245,5 +245,5 @@ _Tips:_ If changing color is dificult, you can change the dot radius.
 <!-- #endregion -->
 
 ```javascript
-tools.from_samples("spinning-wheel");
+tools.show_sample("spinning-wheel");
 ```
