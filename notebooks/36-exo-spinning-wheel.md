@@ -39,12 +39,86 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
-## objective : the outcome
+## Objective
 <!-- #endregion -->
 
 ```javascript hide_input=true
 tools.from_samples("spinning-wheel")
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## How to code: General TIPS
+
+* First do not think on coding but think about what do you want to achieve
+* Decopose the think you try to achive in smaller think, for exemple, for the spinning wheel above:
+  * you need a button
+  * you need circles
+  * you need to change the color of circle
+  * you need to start/stop by pressing the button
+  * and more ...
+* Try to achive the smallest objectives first separatly or independently
+  * At this step the search engine can help :)
+  * **BUT NEVER USE THING THAT YOU DO NOT UNDERSTAND**
+  * **Always** try to understand what you are using from others
+  * **Always** adapt the code you want use from others
+* Gather all technics aquire in previous step and combinne them
+* Merge all thing together
+* Enjoy
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Tips
+
+**Do not loook at notebook code if you want learn something but use your favorite search engine**
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #1
+
+Make the base layout with dummy button and svg area
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #2
+
+Draw circles on the base layout using java script (inline script is ok)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #3
+
+Change color and style of painted circle
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #4
+
+Animate the color to make transition
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #5
+
+Fix the animation to give the desired look
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #6
+
+Make the animation stopable
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #7
+
+make the animation startabel/stopable by pressing the button
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Step #8
+
+Cleanup the code, and cleanup again
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
 ## a few hints
