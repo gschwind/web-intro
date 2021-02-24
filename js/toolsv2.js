@@ -284,6 +284,11 @@ function from_samples(stem, options) {
 	$$.html(html);
 }
 
+
+function show_sample(stem) {
+	$$.html(`<div style="overflow: auto; resize: both; display: grid"><iframe src="/view/samples/${stem}.html"></iframe></div>`);
+}
+
 const inject_css = require('./inject-css')
 
 function init() {
@@ -296,3 +301,4 @@ Jupyter.notebook.execute_cells_below();
 
 exports.init = init;
 exports.from_samples = from_samples;
+exports.show_sample = show_sample;

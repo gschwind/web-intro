@@ -43,7 +43,7 @@ Release the following spinning-wheel with javascript during
 <!-- #endregion -->
 
 ```javascript
-tools.from_samples("spinning-wheel");
+tools.show_sample("spinning-wheel/step3");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -53,7 +53,7 @@ At the end of the course you should write it by yourself
 <!-- #endregion -->
 
 ```javascript
-tools.from_samples("calculator");
+tools.show_sample("calculator");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -63,7 +63,7 @@ Make the following static HTML
 <!-- #endregion -->
 
 ```javascript
-tools.from_samples("spinning-wheel/step1");
+tools.show_sample("spinning-wheel/step1");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
