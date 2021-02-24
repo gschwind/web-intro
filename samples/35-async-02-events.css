@@ -1,0 +1,27 @@
+/* nothing fancy in here */
+
+#top {
+    display: grid;
+    grid-template-areas:
+        "textual-title textual-input"
+        "graphic-title graphic-svg"
+        "result result";
+    align-items: center;
+}
+
+#textual-title { grid-area: textual-title; }
+#textual-input { grid-area: textual-input; }
+#graphic-title { grid-area: graphic-title; }
+#graphic-svg { grid-area: graphic-svg; }
+#result { grid-area: result; }
+
+#graphic-svg {
+    border: 2px solid #a0ffe6;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#result {
+    text-align: center;
+    font-size: x-large;
+}

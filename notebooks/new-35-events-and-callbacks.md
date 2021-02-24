@@ -103,7 +103,6 @@ notice from the example :
 * how we display the events with `console.log()`  
   this is useful technique for debugging / inspecting data
 * how we inspect the event object to display meaningful data
-* also that the `.js` file does not export any symbol 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Code generated events
@@ -159,6 +158,14 @@ window.addEventListener(
 );
 ```
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Previous exemple using lambda function
+<!-- #endregion -->
+
+```javascript
+tools.from_samples("35-async-02-events", {separate_show: true, width: '40em'})
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Closures
