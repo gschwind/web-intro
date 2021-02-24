@@ -67,6 +67,16 @@ tools.show_sample("spinning-wheel/step1");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+To draw circle you will need to use the following snipet:
+
+```html
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+     <circle cx="100" cy="100" r="10" style="fill: rgb(100,200,100);" ></circle>
+</svg>
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 Going to the Step #2
 
  * We need to use javascript to create a circle of dots
